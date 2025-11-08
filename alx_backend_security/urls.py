@@ -1,5 +1,5 @@
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('ip_tracking.urls')),
+    path('ip-tracking/', include('ip_tracking.urls')),
 ]
