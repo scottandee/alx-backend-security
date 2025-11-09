@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import welcome
+from .views import welcome, sensitive_view
 
 
 urlpatterns = [
-    path('', view=welcome),
     path('welcome/', view=welcome),
+    path('sensitive/', view=sensitive_view),
 ]

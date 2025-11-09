@@ -38,6 +38,25 @@ MIDDLEWARE = [
     'ip_tracking.middleware.BlockedIPMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+CACHES = {
+    'default': {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "default-cache",
+    },
+    'cache-for-ratelimiting': {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "ratelimit-cache",
+    },
+}
+
+RATELIMIT_USE_CACHE = 'cache-for-ratelimiting'
+
 ROOT_URLCONF = 'alx_backend_security.urls'
 
 TEMPLATES = [
